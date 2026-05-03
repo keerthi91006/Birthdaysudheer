@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Sudheer ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #fafafa;
+        }
+
+        .box {
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff4d6d, #ff758f);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .photo {
+            width: 45%;
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.7);
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔐 PASSWORD SCREEN -->
+<div id="lockScreen" style="text-align:center; padding:50px;">
+    <h2>Enter password to open 💌</h2>
+    <input type="password" id="passInput" placeholder="Enter password"
+    style="padding:10px; border-radius:10px; border:1px solid gray;">
+    <br><br>
+    <button onclick="checkPassword()">Open ❤️</button>
+    <p id="wrongPass" style="color:red;"></p>
+</div>
+
+<!-- 💖 MAIN CONTENT -->
+<div id="mainContent" style="display:none;">
+
+<div class="hearts"></div>
+
+<div class="box">
+
+    <!-- Header -->
+    <div style="display:flex; align-items:center; margin-bottom:15px;">
+        <img src="img1.jpeg" style="width:40px; height:40px; border-radius:50%; margin-right:10px;">
+        <b>_your_love_story_ 💕</b>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div id="page1">
+        <h2>Happy b'day Sudheeruuuuu 🎉</h2>
+        <button onclick="openPage()">Open 💌</button>
+        <button onclick="noClick()">Emoddhu 😒</button>
+        <p id="funMsg"></p>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div id="page2" class="hidden">
+        <h2>For You 💖</h2>
+        <p>
+Oye nanna,<br><br>
+Happy Birthday ra 💖<br><br>
+Nuvvu na life lo vachinappati nundi anni better ayyayi…<br><br>
+Nuvvu naaku boyfriend kanna ekkuva… na best friend 😊<br><br>
+I love you so much ra 💖<br><br>
+Your thingari 💕
+        </p>
+        <button onclick="nextPage(3)">Next ➡</button>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div id="page3" class="hidden">
+        <h2>Mana Memories 📸❤️</h2>
+
+        <div class="gallery">
+            <div class="photo">
+                <img src="img1.jpeg"><p>Sep 12, 2024 💖</p>
+            </div>
+            <div class="photo">
+                <img src="img2.jpeg"><p>Sep 16, 2024 😚</p>
+            </div>
+            <div class="photo">
+                <img src="img3.jpeg"><p>Feb 16, 2025 🫶</p>
+            </div>
+            <div class="photo">
+                <img src="img4.jpeg"><p>Mar 27, 2026 💕</p>
+            </div>
+            <div class="photo">
+                <img src="img5.jpeg"><p>Mar 28, 2026 ❤️</p>
+            </div>
+        </div>
+
+        <button onclick="nextPage(4)">Next ➡</button>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div id="page4" class="hidden">
+        <h2>Neekosame ee song 🎵</h2>
+
+        <iframe width="100%" height="200"
+        src="https://www.youtube.com/embed/ksPEcmS46fg?start=22"
+        frameborder="0" allowfullscreen></iframe>
+
+        <br><br>
+        <button onclick="nextPage(5)">Next ➡</button>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div id="page5" class="hidden">
+        <h2>Final Surprise 💖</h2>
+
+        <p>
+Forever yours ❤️<br><br>
+Happy Birthday ra picchoda 😚
+        </p>
+
+        <h3>Mana journey from Aug 24, 2020 ⏳❤️</h3>
+        <p id="loveTimer"></p>
+
+        <button onclick="alert('Always yours ❤️')">
+            Will you stay with me forever? 💍
+        </button>
+    </div>
+
+</div>
+</div>
+
+<script>
+// 🔐 PASSWORD
+function checkPassword() {
+    var pass = document.getElementById("passInput").value;
+
+    if (pass === "nanna") {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        document.getElementById("wrongPass").innerText = "Wrong password 🥺";
+    }
+}
+
+// FLOW
+function openPage() {
+    page1.style.display = "none";
+    page2.style.display = "block";
+}
+
+function noClick() {
+    document.getElementById("funMsg").innerText = "Abba plz open cheyocchu kadha 🥺";
+}
+
+function nextPage(num) {
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById("page" + i).style.display = "none";
+    }
+    document.getElementById("page" + num).style.display = "block";
+}
+
+// TIMER
+var startDate = new Date("August 24, 2020 00:00:00").getTime();
+
+setInterval(function() {
+    var now = new Date().getTime();
+    var gap = now - startDate;
+
+    var days = Math.floor(gap / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((gap % (1000 * 60)) / 1000);
+
+    document.getElementById("loveTimer").innerHTML =
+        days + " days 💕 " + hours + " hrs 💫 " +
+        minutes + " min 💖 " + seconds + " sec ❤️";
+}, 1000);
+
+// HEARTS
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
